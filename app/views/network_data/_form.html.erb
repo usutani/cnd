@@ -1,0 +1,29 @@
+<%= form_for(@network_datum) do |f| %>
+  <% if @network_datum.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@network_datum.errors.count, "error") %> prohibited this network_datum from being saved:</h2>
+
+      <ul>
+      <% @network_datum.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :day %><br />
+    <%= f.date_select :day %>
+  </div>
+  <div class="field">
+    <%= f.label :sent %><br />
+    <%= f.text_field :sent %>
+  </div>
+  <div class="field">
+    <%= f.label :received %><br />
+    <%= f.text_field :received %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,4 +1,6 @@
 Cnd::Application.routes.draw do
+  resources :network_data
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

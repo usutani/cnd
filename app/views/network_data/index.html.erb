@@ -1,0 +1,27 @@
+<h1>Listing network_data</h1>
+
+<table>
+  <tr>
+    <th>Day</th>
+    <th>Sent</th>
+    <th>Received</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @network_data.each do |network_datum| %>
+  <tr>
+    <td><%= network_datum.day %></td>
+    <td><%= network_datum.sent %></td>
+    <td><%= network_datum.received %></td>
+    <td><%= link_to 'Show', network_datum %></td>
+    <td><%= link_to 'Edit', edit_network_datum_path(network_datum) %></td>
+    <td><%= link_to 'Destroy', network_datum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Network datum', new_network_datum_path %>

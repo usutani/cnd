@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Day:</b>
+  <%= @network_datum.day %>
+</p>
+
+<p>
+  <b>Sent:</b>
+  <%= @network_datum.sent %>
+</p>
+
+<p>
+  <b>Received:</b>
+  <%= @network_datum.received %>
+</p>
+
+
+<%= link_to 'Edit', edit_network_datum_path(@network_datum) %> |
+<%= link_to 'Back', network_data_path %>

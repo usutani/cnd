@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  day: 2012-09-28
+  sent: 1.5
+  received: 1.5
+
+two:
+  day: 2012-09-28
+  sent: 1.5
+  received: 1.5
