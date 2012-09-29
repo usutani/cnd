@@ -1,4 +1,7 @@
 Cnd::Application.routes.draw do
+  root to: 'chart#index'
+  get "chart/index"
+
   resources :network_data
 
   # The priority is based upon order of creation:
