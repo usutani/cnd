@@ -1,4 +1,9 @@
 class NetworkDataController < ApplicationController
+  if ENV["BASIC_AUTH_NAME"].presence
+    http_basic_authenticate_with name: ENV["BASIC_AUTH_NAME"],
+                             password: ENV["BASIC_AUTH_PW"]
+  end
+
   # GET /network_data
   # GET /network_data.json
   def index
