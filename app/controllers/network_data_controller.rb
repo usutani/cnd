@@ -1,8 +1,7 @@
 class NetworkDataController < ApplicationController
-  if ENV["BASIC_AUTH_NAME"].presence
-    http_basic_authenticate_with name: ENV["BASIC_AUTH_NAME"],
-                             password: ENV["BASIC_AUTH_PW"]
-  end
+  REALM = "Xdaoh23sArJsHe"
+
+  before_filter :authenticate
 
   # GET /network_data
   # GET /network_data.json
@@ -83,6 +82,17 @@ class NetworkDataController < ApplicationController
     respond_to do |format|
       format.html { redirect_to network_data_url }
       format.json { head :no_content }
+    end
+  end
+
+  private
+
+  def authenticate
+    name, pw = ENV["BASIC_AUTH_NAME"], ENV["BASIC_AUTH_PW"]
+    return if name.nil? || pw.nil?
+    users = { name => pw }
+    authenticate_or_request_with_http_digest(REALM) do |username|
+      users[username]
     end
   end
 end
