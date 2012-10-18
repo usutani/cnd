@@ -6,7 +6,7 @@ class NetworkDataController < ApplicationController
   # GET /network_data
   # GET /network_data.json
   def index
-    @network_data = NetworkDatum.all
+    @network_data = NetworkDatum.order(:created_at).page params[:page]
 
     respond_to do |format|
       format.html # index.html.erb
