@@ -9,7 +9,7 @@ class ChartController < ApplicationController
     #@end_at = NetworkDatum.last[:day]
     #@categories = @start_at.upto(@end_at).to_a
 
-    NetworkDatum.all.each do |nd|
+    NetworkDatum.order("day").all.each do |nd|
       categories << nd[:day]
       sent << nd[:sent]
       received << nd[:received]
